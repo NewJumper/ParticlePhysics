@@ -12,12 +12,12 @@ int main() {
 	InitWindow((int)windowSize.x, (int)windowSize.y, "particle physics");
 	SetTargetFPS(1000);
 
-	std::vector<Particle*> particles;
+	std::vector<Particle> particles;
 	int cooldown = GetFPS() / 20;
 
 	while (!WindowShouldClose()) {
-		for (auto* particle : particles) {
-			particle.Update(particles);
+		for (auto& particle : particles) {
+			particle.Update();
 		}
 
 		BeginDrawing();

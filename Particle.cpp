@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 #include "raylib.h"
@@ -14,7 +13,7 @@ public:
 
 	Particle(Vector2 position, float radius, Color color) : position(position), velocity({ 0, 0 }), radius(radius), color(color) {}
 
-	void Update(std::vector<Particle*>& particles) {
+	void Update() {
 		float restitution = 1.0f;
 
 		// apply gravity
@@ -38,10 +37,6 @@ public:
 
 			position.x = prevPos.x;
 			position.y = prevPos.y;
-		}
-
-		for (auto* particle : particles) {
-			if (particle == this) continue;
 		}
 	}
 
